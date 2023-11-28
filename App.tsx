@@ -1,25 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NativeBaseProvider } from "native-base";
+import Theme from './scr/screen/Theme';
+import UserContext from './scr/context/user';
+import Wrapper from './scr/screen/Wrapper';
+import { useState } from 'react';
+
 
 export default function App() {
+
+  const [user, setUser] = useState(null);
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Projeto criado com Expo e TypeScript</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NativeBaseProvider theme={Theme}>
+      <UserContext.Provider value={{user: user, setUser}}>
+        <StatusBar style="auto" />
+        <Wrapper />
+      </UserContext.Provider>
+    </NativeBaseProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'darkgreen',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 34,
-    color: 'white',
-    fontWeight: 'bold',
-  }
-});
