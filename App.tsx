@@ -4,6 +4,7 @@ import Theme from './scr/screen/Theme';
 import UserContext from './scr/context/user';
 import Wrapper from './scr/screen/Wrapper';
 import { useState } from 'react';
+import Home from './scr/screen/Home';
 
 
 export default function App() {
@@ -12,9 +13,9 @@ export default function App() {
 
   return (
     <NativeBaseProvider theme={Theme}>
-      <UserContext.Provider value={{user: user, setUser}}>
+      <UserContext.Provider value={{user: user, setUser(user) {},}}>
         <StatusBar style="auto" />
-        <Wrapper />
+        <Home />
       </UserContext.Provider>
     </NativeBaseProvider>
   );

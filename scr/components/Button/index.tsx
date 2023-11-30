@@ -1,8 +1,8 @@
 import { Button as NativeButton} from 'native-base';
 
 interface Props {
-    content: String;
-    variation: String;
+    content: string;
+    variation: string;
     handleClick: () => void;
 }
 

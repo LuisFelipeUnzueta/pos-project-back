@@ -1,7 +1,18 @@
 import { createContext, useState} from "react";
 
+// Definindo o tipo para o usuário
+type User = {
+    name: string;
+    email: string;
+    password: string;
+  };
+  
+  // Criando um contexto para o usuário
+  type UserContextType = {
+    user: User | null;
+    setUser: (user: User | null) => void;
+  };
 
-
-const UserContext = createContext({});
+const UserContext = createContext<UserContextType>({user: null, setUser: () => {}});
 
 export default UserContext;

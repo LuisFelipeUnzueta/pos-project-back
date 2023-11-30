@@ -1,10 +1,10 @@
 import { Box, FormControl, Stack, WarningOutlineIcon } from 'native-base';
 
 interface Props {
-    variation?: String;
-    defaultValue?: String;
-    placeholder?: String;
-    type: String;
+    variation?: string;
+    defaultValue?: string;
+    placeholder?: string;
+    type: string;
 
 }
 
@@ -14,13 +14,10 @@ export default function Input ({defaultValue, placeholder, type, variation} : Pr
         <Box w="100%" maxWidth="300px">
             <FormControl isRequired>
             <Stack mx="4">
-                <FormControl.Label>Password</FormControl.Label>
-                <Input type="password" defaultValue="12345" placeholder="password" />
-                <FormControl.HelperText>
-                Must be atleast 6 characters.
-                </FormControl.HelperText>
+                <FormControl.Label variant={variation}>{type}</FormControl.Label>
+                <Input type={type} defaultValue={defaultValue} placeholder={placeholder} />
                 <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
-                Atleast 6 characters are required.
+                    Required Field.
                 </FormControl.ErrorMessage>
             </Stack>
             </FormControl>
