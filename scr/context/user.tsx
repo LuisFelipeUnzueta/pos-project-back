@@ -1,10 +1,10 @@
 import { createContext, useState} from "react";
 
 // Definindo o tipo para o usuário
-type User = {
+export type User = {
     name: string;
     email: string;
-    password: string;
+    //password: string;
   };
   
   // Criando um contexto para o usuário

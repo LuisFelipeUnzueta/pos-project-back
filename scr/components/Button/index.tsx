@@ -12,5 +12,5 @@ export default function Button ({content, variation, handleClick} : Props) {
             {content}
         </NativeButton>
 
-    )
+    );
 }

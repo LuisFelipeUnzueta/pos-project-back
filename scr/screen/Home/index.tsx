@@ -7,7 +7,7 @@ import SelectedInfo from '../../components/Selected';
 
 export default function Home() {
     const userData = useContext(UserContext);
-
+    
     const [selectedAlbum, setSelectedAlbum] = useState("");
 
     const DATA = [{
@@ -27,24 +27,36 @@ export default function Home() {
     },];
 
     useEffect(() => {
-        if (selectedAlbum == "Iron maden") {
+        if (selectedAlbum == "Morada") {
           Alert.alert("Parabéns!", "Voce selecionou um ótimo album!");
         }
       }, [selectedAlbum]);
 
-      //<Text color={"secondary.200"}> Bem Vindo {userData.user!.name}</Text>
-
-    return (
-        <Flex p={5} flex={1} justifyContent={"center"} alignContent={"center"} bg={"primary.100"}>
-            <Heading color={"secondary.100"}>HOME</Heading>
-            <Text color={"secondary.200"}> Bem Vindo Luis</Text>
-            <FlatList keyExtractor={(item) => item.id} data={DATA} horizontal={true} 
-            renderItem={({item}) => <Card key={item.id}
-                album={item.album}
+      return (
+        <Flex
+          flex={1}
+          p={5}
+          justifyContent="center"
+          alignItems="center"
+          bg="primary.100"
+        >
+          <Heading color="secondary.100" fontSize="4xl">
+            Wellcome back</Heading>
+          <Text color={"secondary.200"} fontSize={24}>{userData.user!.name}</Text>
+          <FlatList
+            data={DATA}
+            renderItem={({ item }) => (
+              <Card
+                key={item.id}
                 img={item.img}
-                setSelectedAlbum={setSelectedAlbum} />} />
-
-            <SelectedInfo text={selectedAlbum} />
+                album={item.album}
+                setSelectedAlbum={setSelectedAlbum}
+              />
+            )}
+            keyExtractor={(item) => item.id}
+            horizontal
+          />
+          <SelectedInfo text={selectedAlbum} />
         </Flex>
-    );
-}
+      );
+    }

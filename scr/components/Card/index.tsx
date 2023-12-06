@@ -1,5 +1,5 @@
-import { View, Image } from "native-base";
-import { TouchableOpacity } from "react-native";
+import { Image } from "native-base";
+import { Dimensions, TouchableOpacity } from "react-native";
 
 
 interface Props {
@@ -11,11 +11,15 @@ interface Props {
 
 export default function Card ({img , album, setSelectedAlbum} : Props) {
     return (
-        <View>
-            <TouchableOpacity onPress={() => setSelectedAlbum(album)}>
-                <Image m={2} size="x1" alt="Alternate text" source={{uri: img}} />
-            </TouchableOpacity>
-        </View>
+          <TouchableOpacity onPress={() => setSelectedAlbum(album)}>
+            <Image 
+                m={2} 
+                size="x1"
+                style={{height: Dimensions.get('screen').width * 0.5, width: Dimensions.get('screen').width * 0.5, resizeMode:'stretch' }}
+                alt="Alternate text"
+                source={{uri: img}} />
+        </TouchableOpacity>
+ 
 
     )
 }
