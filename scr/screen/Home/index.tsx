@@ -7,6 +7,8 @@ import SelectedInfo from '../../components/Selected';
 
 export default function Home() {
     const userData = useContext(UserContext);
+
+    //userData.user?.token
     
     const [selectedAlbum, setSelectedAlbum] = useState("");
 

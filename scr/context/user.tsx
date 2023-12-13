@@ -4,7 +4,7 @@ import { createContext, useState} from "react";
 export type User = {
     name: string;
     email: string;
-    //password: string;
+    token: string | null;
   };
   
   // Criando um contexto para o usuário
